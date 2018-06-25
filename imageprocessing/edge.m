@@ -1,0 +1,12 @@
+imshow(building);
+grey_building = rgb2gray(building);
+edges_prewitt = edge(gray_building,'Prewitt');
+edges_roberts = edge(gray_building,'Roberts');
+edges_sobel = edge(gray_building,'Sobel');
+figure;
+subplot('position',[0.02 0.35 0.3 0.3]);
+imshow(edges_prewitt);
+subplot('position',[0.35 0.35 0.3 0.3]);
+imshow(edges_roberts);
+subplot('position',[0.68 0.35 0.3 0.3]);
+imshow(edges_sobel);
