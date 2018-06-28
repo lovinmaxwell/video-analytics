@@ -1,6 +1,6 @@
-frames = 1000
+frames = 100
 a = imaqhwinfo;
-camera_name = char(a.installedadaptors(end));
+camera_name = char(a.InstalledAdaptors(end));
 camera_info = imaqhwinfo(camera_name);
 camera_id = camera_info.DeviceInfo.DeviceID(end);
 resolution = char(camera_info.DeviceInfo.SupportedFormats(end));
@@ -8,7 +8,7 @@ vid = videoinput(camera_name, camera_id, resolution);
 FDetect = vision.CascadeObjectDetector('FrontalFaceCART');
 % Set the properties of the video object
 set(vid, 'FramesPerTrigger', Inf);
-set(vid, 'ReturnedColorspace', 'rgb');
+set(vid, 'ReturnedColorspace', 'rgb')
 vid.FrameGrabInterval = 5;
 start(vid)
 ii=22;
