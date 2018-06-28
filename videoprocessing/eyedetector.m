@@ -1,31 +1,21 @@
-frames = 1000
-a = imaqhwinfo;
-camera_name = char(a.InstalledAdaptors(end));
-camera_info = imaqhwinfo(camera_name);
-camera_id = camera_info.DeviceInfo.DeviceID(end);
-resolution = char(camera_info.DeviceInfo.SupportedFormats(end));
-vid = videoinput(camera_name, camera_id, resolution);
+frames = 1000;
+faceDetector = vision.CascadeObjectDetector();
+pointTracker = vision.PointTracker('MaxBidirectionalError', 2);
+ 
+cam = webcam();
+ 
+videoFrame = snapshot(cam);
+frameSize = size(videoFrame);
+ 
+videoPlayer = vision.VideoPlayer('Position', [100 100 [frameSize(2), frameSize(1)]+30]);
+runLoop = true;
+numPts = 0;
+frameCount = 0;
+ a = imaqhwinfo;
 FDetect = vision.CascadeObjectDetector('FrontalFaceCART');
 % Set the properties of the video object
-set(vid, 'FramesPerTrigger', Inf);
-set(vid, 'ReturnedColorspace', 'rgb')
 vid.FrameGrabInterval = 5;
-start(vid)
-ii=22;
-% Set a loop that stop after 100 frames of aquisition
-while(vid.FramesAcquired<=50)
-    Dinp = getsnapshot(vid);
-imshow(Dinp);
-pause(1);
-out=-1 % if face is not detected
-scale=8;
-pic2=double(rgb2gray(pic(1:scale:end,1:scale:end,:)));
-FDetect = vision.CascadeObjectDetector('FrontalFaceCART');
-Dinp = uint8(pic2);
-Face = step(FDetect,Dinp);
-NumberofFacestobedetected=size(Face,1);
-Din=Face(1,:);
-Din=imcrop(Dinp ,[Face(1,1) Face(1,2) Face(1,3) Face(1,4)]);
+
 if Face~=-1
        out=zeros(5,4);
 
@@ -68,5 +58,4 @@ if out ~=-1
     pause(1);
     hold off   
 
-end
 end

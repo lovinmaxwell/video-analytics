@@ -1,5 +1,5 @@
 % 1 is the default id of webcam
-vid = videoinput('winvideo',1);
+vid = videoinput;
 % Set the properties of the video object
 set(vid, 'FramesPerTrigger', Inf);
 set(vid, 'ReturnedColorspace', 'rgb')
