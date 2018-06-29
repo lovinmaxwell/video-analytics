@@ -4,3 +4,12 @@ components-                      quantity
 2) Led Light                        1
 3) USB connector                    1
 4) Jumper wires                     2
+
+29-06-18
+components-                      quantity
+1) Arduino MEGA 2560                1  
+2) Led Light                        3
+3) USB connector                    1
+4) Jumper wires                     4
+5) DHT sensor                       1
+6) Resistors                        3
