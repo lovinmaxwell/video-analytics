@@ -259,7 +259,7 @@ function displayTrackingResults()
         displayRatio = 4/3;
         frame = imresize(frame, displayRatio);
 
-        if ~isempty(tracks),
+        if ~isempty(tracks)
             ages = [tracks(:).age]';
             confidence = reshape([tracks(:).confidence], 2, [])';
             maxConfidence = confidence(:, 1);
