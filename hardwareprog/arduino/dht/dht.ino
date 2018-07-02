@@ -1,8 +1,7 @@
 #include<DHT.h>;
-DHT dht(8,DHT22); //initialize dht sensor
+DHT dht(3,DHT11); //initialize dht sensor
 float humidity;
 float temperature;
-value
 void setup()
 {
   Serial.begin(9600);
@@ -14,11 +13,11 @@ void loop()
  humidity = dht.readHumidity();
  temperature = dht.readTemperature();
 //print temperature and humidity valuse to serial monitor
-Serial.print("Humidity:");
-Serial.print(humidity);
-Serial.print("%,Temperature:");
-Serial.print(temperature);
-Serial.print("Celsius");
+Serial.println("Humidity:");
+Serial.println(humidity);
+Serial.println("Temperature:");
+Serial.println(temperature);
+Serial.println("Celsius");
 delay(2000); //delay of 2 seconds
 }
 

@@ -1,7 +1,7 @@
 //LED pins
-int r = 2;
-int g = 3;
-int y = 4;
+int r = 5;
+int g = 6;
+int y = 7;
 void setup()
 {
   Serial.begin(9600);
