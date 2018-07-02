@@ -13,3 +13,14 @@ components-                      quantity
 4) Jumper wires                     4
 5) DHT sensor                       1
 6) Resistors                        3
+
+02-07-18
+components-                      quantity
+1) Arduino MEGA 2560                1  
+2) Led Light                        3
+3) USB connector                    1
+4) Jumper wires                     4
+5) DHT sensor                       2
+6) Resistors                        3
+7) Bread board                      1
+8) Servo motor                      1
