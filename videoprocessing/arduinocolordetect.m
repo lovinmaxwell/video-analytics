@@ -1,15 +1,16 @@
-vid = videoinput ('winvideo',1,'YUY2_640x480');
+Detector = vision.CascadeObjectDetector();
 %set properties in video objects
-set(vid, 'FramesPerTrigger', Inf);
-set(vid, 'ReturnedColorspace', 'rgb');
-vid.FrameGrabInterval = 5;
+pointTracker = vision.PointTracker('MaxBidirectionalError', 2);
+cam = webcam();
+videoFrame = snapshot(cam);
+frameSize = size(videoFrame);
 %start video acquisition
-start(vid)
+
 %set a loop for frames
-while(vid.FramesAcquired<=500)
-        im = getsnapshot(vid);
+while(Detector.FramesAcquired<=500)
+        im = getsnapshot(Detector);
  %get snapshot of current frams
- data = getsnapshot(vid);
+ data = getsnapshot(Detector);
  %track red object in real time
  %we have to substract the red components
  %from the grey scale image to extract the red component in the image
@@ -42,12 +43,11 @@ while(vid.FramesAcquired<=500)
 % Both the loops end here.
 
 % Stop the video aquisition.
-stop(vid);
+stop(Detector);
 
 % Flush all the image data stored in the memory buffer.
-flushdata(vid);
+flushdata(Detector);
 
 % Clear all variables
 clear all
- 
  
