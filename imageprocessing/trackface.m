@@ -20,7 +20,7 @@ guidata(hObject, handles);
 function varargout = facetracking_OutputFcn(hObject, eventdata, handles) 
 
 varargout{1} = handles.output;
-function StartTracking_Callback(hObject, eventdata, handles)
+function StartTracking_Callback(~, eventdata, handles)
 a = imaqhwinfo;
 camera_name = char(a.InstalledAdaptors(end));
 camera_info = imaqhwinfo(camera_name);

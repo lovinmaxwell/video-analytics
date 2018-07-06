@@ -9,5 +9,4 @@ gui_State = Struct('gui_Name',         nfilename,...
  if nargin && ischar(varargin(1))
      gui_State.gui_Callback = str2func(varargin(1));
  end
- 
      
